@@ -15,3 +15,5 @@ Therefore, this code is written in NTL, and a large number of ZZ class functions
 采用NTL大数库完成的背包问题，和NTL存在一样的问题，收拾随机生成的数字，但是可以依照上面的cpp文件进行修改，采用手动输入字符，目前char_to_string.cpp在VScode上面能正常运行，但是VScode没有安装NTL大数库，VS2019上面安装了NTL大数库，将Knapsack进行修改之后，输入字符能正常转化为二进制，但是二进制转化为字符时无法正常输出正确的字符。
 ## Knapsack_v1_1.cpp
 将Knapsack进行修改之后，输入字符能正常转化为二进制，但是二进制转化为字符时无法正常输出正确的字符.
+
+![image](https://user-images.githubusercontent.com/94292494/143599661-d5731cb9-c32c-422e-acb3-71dd8e6ed7da.png)
