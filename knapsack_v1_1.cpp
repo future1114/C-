@@ -43,34 +43,34 @@ string string_char(string data)
 	return  result;
 }
 int main() {
-	// Éú³É³¤¶ÈÎªvecLenµÄ³¬µİÔöĞòÁĞA£»
-	Vec<ZZ> A; // ¶¯Ì¬Êı×éA£¬ÔÚÍ·ÎÄ¼şvector.hÖĞÉùÃ÷
+	// ç”Ÿæˆé•¿åº¦ä¸ºvecLençš„è¶…é€’å¢åºåˆ—Aï¼›
+	Vec<ZZ> A; // åŠ¨æ€æ•°ç»„Aï¼Œåœ¨å¤´æ–‡ä»¶vector.hä¸­å£°æ˜
 	long vecLen = 100; 
-	A.SetLength(vecLen);// AÊı×é³¤¶ÈÎª vecLen
+	A.SetLength(vecLen);// Aæ•°ç»„é•¿åº¦ä¸º vecLen
 	ZZ sum = to_ZZ(0);
 	cout << "A=" << endl;
 	for (int i = 0; i < vecLen; i++) {
-		A[i] = sum + RandomBits_ZZ(16) + 1;// ºóÃæÃ¿Ò»Ïî±ÈÇ°ÃæËùÓĞÏîµÄºÍ²»³¬¹ı16bit³¤¶ÈµÄÊı£¬
-		cout << A[i] << endl;		                   //+1È·±£Ëæ»úÊıÎª0Ê±¼Ó1.
+		A[i] = sum + RandomBits_ZZ(16) + 1;// åé¢æ¯ä¸€é¡¹æ¯”å‰é¢æ‰€æœ‰é¡¹çš„å’Œä¸è¶…è¿‡16bité•¿åº¦çš„æ•°ï¼Œ
+		cout << A[i] << endl;		                   //+1ç¡®ä¿éšæœºæ•°ä¸º0æ—¶åŠ 1.
 		sum = sum + A[i];
 	}
 	cout << endl << "sum_A = " << sum << endl;
-	// Ñ¡ÔñÃÜÔ¿tºÍk£¬Éú³É¹«Ô¿B
+	// é€‰æ‹©å¯†é’¥tå’Œkï¼Œç”Ÿæˆå…¬é’¥B
 	ZZ t, k, t_inv;
-	k = sum + RandomBits_ZZ(16) + 1;// ²úÉúÒ»¹²±ÈAµÄ×ÜºÍ´óµÄËæ»úÊık
+	k = sum + RandomBits_ZZ(16) + 1;// äº§ç”Ÿä¸€å…±æ¯”Açš„æ€»å’Œå¤§çš„éšæœºæ•°k
 	while (1) {
-		t = RandomBnd(k); //Ëæ»ú²úÉúÒ»¸ö±ÈkĞ¡µÄËæ»úÊı
-		if (InvModStatus(t_inv, t, k) == 0) { //ÇótµÄÄæÔªt_inv ==0±íÊ¾
-			break; // Èç¹ûÕÒµ½Óëk»¥ÖÊµÄËæ»úÊıt£¬ÔòÍË³öwhile
+		t = RandomBnd(k); //éšæœºäº§ç”Ÿä¸€ä¸ªæ¯”kå°çš„éšæœºæ•°
+		if (InvModStatus(t_inv, t, k) == 0) { //æ±‚tçš„é€†å…ƒt_inv ==0è¡¨ç¤º
+			break; // å¦‚æœæ‰¾åˆ°ä¸käº’è´¨çš„éšæœºæ•°tï¼Œåˆ™é€€å‡ºwhile
 		}
 	}
 	cout << "t = " << t << endl;
 	cout << "k = " << k << endl;
 	cout << "B = " << endl;
 	Vec<ZZ> B;
-	B.SetLength(vecLen); // ĞòÁĞ¹«Ô¿BºÍË½Ô¿AµÄ³¤¶ÈÏàÍ¬
+	B.SetLength(vecLen); // åºåˆ—å…¬é’¥Bå’Œç§é’¥Açš„é•¿åº¦ç›¸åŒ
 	for (int j = 0; j < vecLen; j++) {
-		B[j] = MulMod(A[j], t, k);  // BµÄÃ¿¸öÔªËØ= AµÄÃ¿¸öÔªËØ * t mod k
+		B[j] = MulMod(A[j], t, k);  // Bçš„æ¯ä¸ªå…ƒç´ = Açš„æ¯ä¸ªå…ƒç´  * t mod k
 		cout << B[j] << endl;
 	}
 	unsigned char in_m[129];
@@ -82,28 +82,28 @@ int main() {
 	for (int ix = 0; ix < 16; ix++) {
 		cin >> miWen[ix];
 	}
-	for (int i = 0; i < 16; i++) { //½«16¸ö×ÖÄ¸×ª³É¶ş½øÖÆ,´æ´¢ÔÚ128Î»³¤¶ÈµÄ×Ö·ûÊı×éµ±ÖĞ
+	for (int i = 0; i < 16; i++) { //å°†16ä¸ªå­—æ¯è½¬æˆäºŒè¿›åˆ¶,å­˜å‚¨åœ¨128ä½é•¿åº¦çš„å­—ç¬¦æ•°ç»„å½“ä¸­
 		ax = char_string(miWen[i]);
 		for (int j = 0; j < 8; j++) {
 			in_m[nx] = ax[j];
 			nx++;
 		}
 	}
-	unsigned char ou_m[129] = "";// ½âÃÜºóµÄÃ÷ÎÄ¿Õ¼ä
-	////ÓÃ¹«Ô¿B¼ÓÃÜÃ÷ÎÄin_mµÃµ½ÃÜÎÄc
+	unsigned char ou_m[129] = "";// è§£å¯†åçš„æ˜æ–‡ç©ºé—´
+	////ç”¨å…¬é’¥BåŠ å¯†æ˜æ–‡in_må¾—åˆ°å¯†æ–‡c
 	ZZ c = to_ZZ(0);
 	for (int i = 0; i < vecLen; i++) {
 		if (in_m[i] == '1') {
-			c = B[i] + c; //Èç¹ûÃ÷ÎÄ¶ÔÓ¦ÔªËØÎª1£¬Ôò¼ÓÉÏ¶ÔÓ¦Î»ÖÃBÖĞÔªËØÖµ
+			c = B[i] + c; //å¦‚æœæ˜æ–‡å¯¹åº”å…ƒç´ ä¸º1ï¼Œåˆ™åŠ ä¸Šå¯¹åº”ä½ç½®Bä¸­å…ƒç´ å€¼
 		}
 	}
 	cout << "c = " << c << endl;
 
-	//// ÓÃË½Ô¿A¡¢t¡¢k½âÃÜcµÃµ½Ã÷ÎÄout_m
-	ZZ c_1 = MulMod(c, t_inv, k);// ÃÜÎÄcÓÃË½Ô¿ tµÄÄæÔªt_inv ÒÔ¼°k Ëã³ö¶ÔÓ¦Ë½Ô¿AµÄ Ã÷ÎÄºÍc_1
-	for (int j = vecLen - 1; j >= 0; j--) { // ³¬µİÔöĞòÁĞ½âÃÜµÃµ½µÄÃ÷ÎÄ·ÅÔÚout_mÊı×éÖĞ 
+	//// ç”¨ç§é’¥Aã€tã€kè§£å¯†cå¾—åˆ°æ˜æ–‡out_m
+	ZZ c_1 = MulMod(c, t_inv, k);// å¯†æ–‡cç”¨ç§é’¥ tçš„é€†å…ƒt_inv ä»¥åŠk ç®—å‡ºå¯¹åº”ç§é’¥Açš„ æ˜æ–‡å’Œc_1
+	for (int j = vecLen - 1; j >= 0; j--) { // è¶…é€’å¢åºåˆ—è§£å¯†å¾—åˆ°çš„æ˜æ–‡æ”¾åœ¨out_mæ•°ç»„ä¸­ 
 		if (c_1 >= A[j]){
-			ou_m[j] = '1'; // ×î¿ªÊ¼µÄµÚÒ»¸öÃ÷ÎÄ×Ö·û'1'¶ÔÓ¦µÄÊıÒ»¶¨ÊÇÏàÍ¬µÄ
+			ou_m[j] = '1'; // æœ€å¼€å§‹çš„ç¬¬ä¸€ä¸ªæ˜æ–‡å­—ç¬¦'1'å¯¹åº”çš„æ•°ä¸€å®šæ˜¯ç›¸åŒçš„
 			c_1=c_1-A[j];
 		}
 		else{
@@ -111,7 +111,7 @@ int main() {
 		}
 	}
 	cout << endl;
-	////  ´òÓ¡Ã÷ÎÄin_mºÍ½âÃÜµÃµ½Ã÷ÎÄµÄout_m£¬¹Û²ìÊÇ·ñÏàÍ¬
+	////  æ‰“å°æ˜æ–‡in_må’Œè§£å¯†å¾—åˆ°æ˜æ–‡çš„out_mï¼Œè§‚å¯Ÿæ˜¯å¦ç›¸åŒ
 	cout << "in_v = ";
 	for (int i = 0; i < vecLen; i++) {
 		cout << in_m[i];
@@ -124,7 +124,7 @@ int main() {
 	string tmpe, d, e;
 	int ix = 0;
 	//char ex = '\0';
-	for (int i = 0; i < 16; i++) {//½«¶ş½øÖÆ×ª³É16¸ö×ÖÄ¸
+	for (int i = 0; i < 16; i++) {//å°†äºŒè¿›åˆ¶è½¬æˆ16ä¸ªå­—æ¯
 		c = ou_m[ix];
 		for (int j = 0; j < 7; j++) {
 			ix++;
