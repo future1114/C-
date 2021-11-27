@@ -1,5 +1,6 @@
 # 使用c语言去完成部分数据结构
 ## 图的深度遍历.cpp
+```cpp
 typedef struct ArcCell {
     VRType adj;
     InfoType* info;
@@ -10,4 +11,5 @@ typedef struct {
     int vexnum, arcnum;
     GraphKind kind;
 }MGraph;
+```
 ## 
