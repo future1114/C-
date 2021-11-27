@@ -1,6 +1,11 @@
 # 使用c语言去完成部分数据结构
 ## 图的深度遍历.cpp
 ```cpp
+
+包括函数：
+int LocateVex(MGraph G,VertexType v)
+Status FirstAdjVex(MGraph G, int v)
+Status NextAdjVex(MGraph G, int v, int w)
 typedef struct ArcCell {
     VRType adj;
     InfoType* info;
@@ -11,5 +16,8 @@ typedef struct {
     int vexnum, arcnum;
     GraphKind kind;
 }MGraph;
+Status CreateUDN(MGraph &G)
+void DFS(MGraph G, int v)
+void DFSTraverse(MGraph G, Status(*Visit)(int v))
 ```
 ## 
