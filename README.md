@@ -17,3 +17,5 @@ Therefore, this code is written in NTL, and a large number of ZZ class functions
 将Knapsack进行修改之后，输入字符能正常转化为二进制，但是二进制转化为字符时无法正常输出正确的字符.
 
 ![image](https://user-images.githubusercontent.com/94292494/143599661-d5731cb9-c32c-422e-acb3-71dd8e6ed7da.png)
+## 顺序表.cpp
+顺序表包含Insert和delete函数
