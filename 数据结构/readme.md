@@ -22,6 +22,10 @@ void DFSTraverse(MGraph G, Status(*Visit)(int v))
 ```
 ## 最小生成树.cpp
 使用prim算法进行计算
+
 ![1QR30JRCK~T0PKQP1%ZH_68](https://user-images.githubusercontent.com/94292494/144560064-e81b721b-2656-4f03-9631-da538487683d.png)
+
 output：
+
 ![NG9_IK@HI)J~P%`8Y}OFE}R](https://user-images.githubusercontent.com/94292494/144560138-014e03cc-5ba1-4095-9cd2-51e78fbf8326.png)
+## 
