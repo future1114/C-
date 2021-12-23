@@ -28,21 +28,7 @@ typedef struct {
     GraphKind kind;
 }MGraph;
 
-Status FirstAdjVex(MGraph G, int v) {    //Ñ°ÕÒÍ¼GÖĞvµÄµÚÒ»¸öÁÚ½Óµã
-    for (int i = 0; i < G.vexnum; i++) {
-        if (G.arcs[v][i].adj != INFINITY) return i;
-    }
-    return -1;
-}
-
-Status NextAdjVex(MGraph G, int v, int w) {   //Ñ°ÕÒÍ¼GÖĞv¶¥µãÔÚwÖ®ºóµÄÏÂÒ»¸öÁÚ½Óµã
-    for (int i = w + 1; i < G.vexnum; i++) {
-        if (G.arcs[v][i].adj != INFINITY) return i;
-    }
-    return -1;
-}
-
-int LocateVex(MGraph &G,VertexType v){//²éÕÒÔªËØvÔÚÒ»Î¬Êı×é Vertex[] ÖĞµÄÏÂ±ê£¬²¢·µ»ØÏÂ±ê 
+/*int LocateVex(MGraph &G,VertexType v){//²éÕÒÔªËØvÔÚÒ»Î¬Êı×é Vertex[] ÖĞµÄÏÂ±ê£¬²¢·µ»ØÏÂ±ê 
 	int i;
 	for(i=0;i<G.vexnum;i++){
 		if(v==G.vexs[i]){
@@ -51,6 +37,15 @@ int LocateVex(MGraph &G,VertexType v){//²éÕÒÔªËØvÔÚÒ»Î¬Êı×é Vertex[] ÖĞµÄÏÂ±ê£¬²
 	}
     cout << "No Such Vertex!" << endl;
     return -1;
+}*/
+
+int LocateVex(MGraph G, VertexType v){
+	//¶¨Î»¶¥µãvµÄÏÂ±ê 
+	for(int i=0;i<G.vexnum;i++){
+		if (G.vexs[i] == v)
+			return i;
+	}
+	return -1;
 }
 
 Status CreateUDN(MGraph &G) {//  Ëã·¨ 7.2
